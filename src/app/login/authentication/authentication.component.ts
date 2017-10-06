@@ -19,9 +19,6 @@ export class AuthenticationComponent implements OnInit {
   }
   public login(username, password) {
     this.authenticationService.isLoggedIn(username, password).subscribe(
-      res => this.isLoggedIn = res,
-      error => this.connectionError = error
-    );
+      res => this.isLoggedIn = res, error => this.connectionError = error);
   }
-
 }
