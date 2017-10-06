@@ -1,3 +1,8 @@
 <p>
-  login component {{username}} - {{isLoggedIn}}
+  login component {{username.value}} - {{isLoggedIn}} - {{counter}}
+
 </p>
+<div><input type="text" #username></div>
+<div><input type="text" #password></div>
+<div><button (click)="login(username.value, password.value)">Loggin</button></div>
+username: {{username.value}} - password: {{password.value}}

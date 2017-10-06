@@ -9,10 +9,19 @@ import {AuthenticationService} from '../authentication.service';
 export class AuthenticationComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService) { }
-  username = 'Mario';
+  counter = 0;
   isLoggedIn = false;
+  connectionError = 'no error';
   ngOnInit() {
-    this.isLoggedIn = this.authenticationService.isLoggedIn(this.username);
+    setInterval(() =>{
+      this.counter++;
+    }, 1000);
+  }
+  public login(username, password) {
+    this.authenticationService.isLoggedIn(username, password).subscribe(
+      res => this.isLoggedIn = res,
+      error => this.connectionError = error
+    );
   }
 
 }
